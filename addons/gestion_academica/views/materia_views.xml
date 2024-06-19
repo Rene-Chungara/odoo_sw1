@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Vista Kanban -->
         <record id="view_materia_kanban" model="ir.ui.view">
             <field name="name">Materia Kanban</field>
             <field name="model">gestion_academica.materia</field>
@@ -8,19 +9,24 @@
                 <kanban class="o_res_partner_kanban">
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
+                            <div t-attf-class="oe_kanban_global_click o_kanban_card">
                                 <a type="open">
-                                    
-                                    <div class="oe_kanban_details">
-                                        <h4>
-                                            <field name="name" />
-                                        </h4>
-                                        <ul>
-                                            <li t-if="record.sigla.raw_value">
-                                                <field name="sigla" />
-                                            </li>
-                                            
-                                        </ul>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                <field name="name"/>
+                                            </h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group list-group-flush">
+                                                <li t-if="record.sigla.raw_value" class="list-group-item">
+                                                    <i class="fa fa-tag" title="Sigla" aria-hidden="true"></i> <field name="sigla"/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a type="open" class="btn btn-primary" role="button">Ver Detalles</a>
+                                        </div>
                                     </div>
                                 </a>
                             </div>
@@ -30,52 +36,42 @@
             </field>
         </record>
 
+        <!-- Vista Tree -->
         <record id="view_materia_tree" model="ir.ui.view">
             <field name="name">gestion_academica.materia.tree</field>
             <field name="model">gestion_academica.materia</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Materia">
-                    <field name="name"/>
-                    <field name="sigla"/>
+                <tree string="Materias" class="o_list_view">
+                    <field name="name" string="Nombre"/>
+                    <field name="sigla" string="Sigla"/>
                 </tree>
             </field>
         </record>
 
+        <!-- Vista Form -->
         <record id="view_materia_form" model="ir.ui.view">
             <field name="name">gestion_academica.materia.form</field>
             <field name="model">gestion_academica.materia</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <form string="Materia">
-                    
+                <form string="Materia" class="o_form_view">
                     <sheet>
-                        <div name="button_box" class="oe_button_box">
+                        <div class="oe_title">
+                            <h1 class="o_form_view_title">
+                                <field name="name" required="1" placeholder="Nombre de materia"/>
+                            </h1>
                         </div>
-                        <div style="width:100%;" class="row align-items-center">
-                            <div class="mb16 col-8 col-lg-10 px-0">
-                                <div class="row">
-                                    <h2 class="col-12 col-lg-10">
-                                        <field name="name" required="1" placeholder="Nombre de materia"/>
-                                                
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <notebook colspan="4">
-                            <page name="informacion_adicional" string="Informacion adicional">
-                                <group name="informacion_adicional">
-                                    <group>
-                                        <field name="sigla" required="1"/>
-                                    </group>
-                                    
-                                    
-                                </group>
-                            </page>
+                        <group>
+                            <group>
+                                <field name="sigla" required="1" string="Sigla"/>
+                            </group>
+                        </group>
+                        <notebook>
                             <page string="Profesores">
                                 <field name="materia_profesor_ids">
                                     <tree editable="bottom">
-                                        <field name="profesor_id"/>
+                                        <field name="profesor_id" string="Profesor"/>
                                     </tree>
                                 </field>
                             </page>
@@ -85,7 +81,7 @@
             </field>
         </record>
 
-
+        <!-- Acción -->
         <record model="ir.actions.act_window" id="abrir_materia_view">
             <field name="name">Materias</field>
             <field name="type">ir.actions.act_window</field>
@@ -93,29 +89,26 @@
             <field name="view_mode">kanban,tree,form</field>
         </record>
 
-
+        <!-- Vistas en Acción -->
         <record model="ir.actions.act_window.view" id="abrir_materia_view_form">
-            <field name="act_window_id" ref="abrir_materia_view" />
-            <field name="sequence" eval="20" />
+            <field name="act_window_id" ref="abrir_materia_view"/>
+            <field name="sequence" eval="20"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_materia_form" />
+            <field name="view_id" ref="view_materia_form"/>
         </record>
 
         <record model="ir.actions.act_window.view" id="abrir_materia_view_tree">
-            <field name="act_window_id" ref="abrir_materia_view" />
-            <field name="sequence" eval="10" />
+            <field name="act_window_id" ref="abrir_materia_view"/>
+            <field name="sequence" eval="10"/>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_materia_tree" />
+            <field name="view_id" ref="view_materia_tree"/>
         </record>
 
         <record model="ir.actions.act_window.view" id="abrir_materia_view_kanban">
-            <field name="act_window_id" ref="abrir_materia_view" />
-            <field name="sequence" eval="5" />
+            <field name="act_window_id" ref="abrir_materia_view"/>
+            <field name="sequence" eval="5"/>
             <field name="view_mode">kanban</field>
-            <field name="view_id" ref="view_materia_kanban" />
+            <field name="view_id" ref="view_materia_kanban"/>
         </record>
-
-
     </data>
-
 </odoo>

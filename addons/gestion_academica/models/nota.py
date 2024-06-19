@@ -19,7 +19,7 @@ class Nota(models.Model):
     paralelo_id = fields.Many2one(related='gestion_paralelo_materia_profesor_horario_id.paralelo_id', string='Paralelo', store=True)
     curso_id = fields.Many2one(related='paralelo_id.curso_id', string='Curso', store=True, readonly=True)
     sucursal_id = fields.Many2one(related='paralelo_id.sucursal_id', string='Sucursal', store=True, readonly=True)
-    subgestion_id = fields.Many2one('gestion_academica.subgestion', string='Subgestion', required=True)
+    subgestion_id = fields.Many2one('gestion_academica.subgestion', string='Periodo', required=True)
     estudiante_id = fields.Many2one('gestion_academica.estudiante', string='Estudiante', store=True)
     name_completo_nota = fields.Char(string='Nombre Completo', compute='_compute_nota', store=True)
     nota = fields.Float(string='Nota', required=True)

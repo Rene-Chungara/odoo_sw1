@@ -6,7 +6,7 @@
             <field name="name">Estudiante Kanban</field>
             <field name="model">gestion_academica.estudiante</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban class="o_kanban_view">
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click o_kanban_card">
@@ -29,7 +29,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer text-center">
                                         <a type="open" class="btn btn-primary" role="button">Ver Detalles</a>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
             <field name="name">Estudiante Árbol</field>
             <field name="model">gestion_academica.estudiante</field>
             <field name="arch" type="xml">
-                <tree string="Estudiantes">
+                <tree string="Estudiantes" class="o_list_view">
                     <field name="name" string="Nombre"/>
                     <field name="genero" string="Género"/>
                     <field name="fecha_nacimiento" string="Fecha de Nacimiento"/>
@@ -60,41 +60,38 @@
             <field name="name">Estudiante Formulario</field>
             <field name="model">gestion_academica.estudiante</field>
             <field name="arch" type="xml">
-                <form string="Estudiante">
+                <form string="Estudiante" class="o_form_view">
                     <sheet>
                         <div class="oe_title">
-                            <h1>
+                            <h1 class="o_form_view_title">
                                 <field name="name" required="1" placeholder="Nombre"/>
                             </h1>
                         </div>
-                        <div class="oe_button_box" name="button_box"></div>
+                        <group>
+                            <group>
+                                <field name="correo" required="1" string="Correo"/>
+                                <field name="telefono" required="1" string="Teléfono"/>
+                                <field name="direccion" required="1" string="Dirección"/>
+                            </group>
+                            <group>
+                                <field name="genero" required="1" string="Género"/>
+                                <field name="fecha_nacimiento" required="1" string="Fecha de Nacimiento"/>
+                            </group>
+                        </group>
                         <notebook>
-                            <page name="informacion_personal" string="Información Personal">
-                                <group name="informacion_personal">
-                                    <group>
-                                        <field name="correo" required="1" string="Correo"/>
-                                        <field name="telefono" required="1" string="Teléfono"/>
-                                        <field name="direccion" required="1" string="Dirección"/>
-                                    </group>
-                                    <group>
-                                        <field name="genero" required="1" string="Género"/>
-                                        <field name="fecha_nacimiento" required="1" string="Fecha de Nacimiento"/>
-                                    </group>
-                                </group>
-                            </page>
                             <page string="Tutor">
                                 <field name="parentesco_ids">
                                     <tree editable="bottom" delete="true">
                                         <field name="apoderado_id" string="Tutor"/>
                                         <field name="name" string="Parentesco"/>
-                                        <field name="ci_apoderado" string="CI tutor"/>
+                                        <field name="ci_apoderado" string="CI Tutor"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Pagos">
                                 <field name="matricula_ids">
                                     <tree editable="bottom" delete="true">
-                                        <field name="subgestion_id" string="Subgestión"/>
+                                        <field name="subgestion_id" string="Periodo"/>
                                         <field name="gestion_id" string="Gestión"/>
                                         <field name="monto" string="Monto"/>
                                         <field name="pagada" string="Pagada"/>
@@ -107,14 +104,15 @@
                                         <field name="gestion_paralelo_id" domain="[('id', 'in', gestion_paralelo_ids)]" string="Gestión Paralelo"/>
                                         <field name="gestion_paralelo_materia_profesor_horario_id" domain="[('id', 'in', gestion_paralelo_materia_profesor_horario_ids)]" string="Materia/Profesor"/>
                                         <field name="nota" string="Nota"/>
-                                        <field name="subgestion_id" domain="[('id', 'in', subgestion_ids)]" string="Subgestión"/>
-                                        <field name="gestion_paralelo_ids" invisible="1"/>
-                                        <field name="gestion_paralelo_materia_profesor_horario_ids" invisible="1"/>
-                                        <field name="subgestion_ids" invisible="1"/>
+                                        <field name="subgestion_id" domain="[('id', 'in', subgestion_ids)]" string="Periodo"/>  
+                                        <field name="gestion_paralelo_ids"/>
+                                        <field name="gestion_paralelo_materia_profesor_horario_ids"/>
+                                        <field name="subgestion_ids"/>                                      
                                     </tree>
-                                </field>
+                                </field>                                
                             </page>
                         </notebook>
+                        
                     </sheet>
                 </form>
             </field>

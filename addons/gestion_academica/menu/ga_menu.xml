@@ -52,7 +52,7 @@
 
     <!-- Infraestructura -->
     <menuitem id="menu_infraestructura_root"
-        name="Infraestructura"
+        name="Curso"
         parent="ga_menu_root"
         sequence="40" />
 
@@ -62,41 +62,37 @@
         sequence="10"
         action="abrir_sucursal_view" />
 
-    <menuitem id="menu_bloque"
-        name="Bloques"
-        parent="menu_infraestructura_root"
-        sequence="20"
-        action="abrir_bloque_view" />
-
     <menuitem id="menu_curso"
         name="Cursos"
         parent="menu_infraestructura_root"
-        sequence="30"
+        sequence="20"
         action="abrir_curso_view" />
 
     <menuitem id="menu_paralelos"
         name="Paralelos"
         parent="menu_infraestructura_root"
-        sequence="40"
+        sequence="30"
         action="abrir_paralelo_view" />
 
     <!-- Gestiones -->
-    <menuitem id="menu_gestion"
-        name="Gestiones"
-        parent="ga_menu_root"
-        sequence="50"
-        action="abrir_gestion_view" />
+    
 
     <!-- Servicios -->
-    <menuitem id="menu_servicios_root"
-        name="Servicios"
+    <menuitem id="menu_servicio_root"
+        name="Inscripciones"
         parent="ga_menu_root"
-        sequence="60" />
+        sequence="50" />
 
+    <menuitem id="menu_gestion"
+        name="Año de Gestiones"
+        parent="menu_servicio_root"
+        sequence="10"
+        action="abrir_gestion_view" />
+    
     <menuitem id="menu_inscripcion"
         name="Inscripciones"
-        parent="menu_servicios_root"
-        sequence="10"
+        parent="menu_servicio_root"
+        sequence="20"
         action="abrir_inscripcion_view" />
 
 </odoo>

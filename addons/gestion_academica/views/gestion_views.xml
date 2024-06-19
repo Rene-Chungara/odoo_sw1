@@ -26,7 +26,7 @@
                         </group>
                         
                         <notebook>
-                            <page string="Paralelos">
+                            <page string="Sucursal y Curso">
                                 <field name="gestion_paralelo_ids">
                                     <tree editable="bottom">
                                         <field name="paralelo_id"/>
@@ -35,7 +35,7 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Subgestiones">
+                            <page string="Periodos">
                                 <field name="subgestion_ids">
                                     <tree editable="bottom">
                                         <field name="name"/>
@@ -50,7 +50,7 @@
         <!-- Acción para abrir la vista de gestión -->
         
         <record model="ir.actions.act_window" id="abrir_gestion_view">
-            <field name="name">Gestions</field>
+            <field name="name">Gestiones</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">gestion_academica.gestion</field>
             <field name="view_mode">kanban,tree,form</field>

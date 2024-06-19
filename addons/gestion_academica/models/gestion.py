@@ -4,9 +4,9 @@ class Gestion(models.Model):
     _name = 'gestion_academica.gestion'
     _description = 'Modelo para gestionar'
 
-    name = fields.Char(string='Nombre de la Gestión', required=True)
+    name = fields.Char(string='Año de la Gestión', required=True)
     descripcion = fields.Text(string='Descripción')
-    gestion_paralelo_ids = fields.One2many('gestion_academica.gestion_paralelo', 'gestion_id', string='Paralelos')
+    gestion_paralelo_ids = fields.One2many('gestion_academica.gestion_paralelo', 'gestion_id', string='Sucursal')
     subgestion_ids = fields.One2many('gestion_academica.subgestion', 'gestion_id', string='Gestiones')
 
 

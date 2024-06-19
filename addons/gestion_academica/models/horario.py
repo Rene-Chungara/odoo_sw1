@@ -1,5 +1,4 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
 
 class Horario(models.Model):
     _name = 'gestion_academica.horario'
@@ -22,32 +21,32 @@ class Horario(models.Model):
 
     hora_inicio = fields.Selection(
         [(str(n), str(n)) for n in range(1, 13)],
-        string='Hora inicio'
+        string='Hora: '
     )
 
     minuto_inicio = fields.Selection(
         [('00', '00'), ('15', '15'), ('30', '30'), ('45', '45')],
-        string='Minuto inicio'
+        string='Minuto: '
     )
 
     am_pm_inicio = fields.Selection(
         [('AM', 'AM'), ('PM', 'PM')],
-        string='AM/PM inicio'
+        string='AM/PM: '
     )
 
     hora_final = fields.Selection(
         [(str(n), str(n)) for n in range(1, 13)],
-        string='Hora final'
+        string='Hora: '
     )
 
     minuto_final = fields.Selection(
         [('00', '00'), ('15', '15'), ('30', '30'), ('45', '45')],
-        string='Minuto final'
+        string='Minuto: '
     )
 
     am_pm_final = fields.Selection(
         [('AM', 'AM'), ('PM', 'PM')],
-        string='AM/PM final'
+        string='AM/PM: '
     )
 
     horario_completo = fields.Char(

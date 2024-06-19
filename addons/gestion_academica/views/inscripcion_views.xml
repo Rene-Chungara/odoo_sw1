@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Vista de formulario para Inscripcion -->
+        <!-- Vista de formulario para Inscripción -->
         <record id="view_inscripcion_form" model="ir.ui.view">
             <field name="name">gestion_academica.inscripcion.form</field>
             <field name="model">gestion_academica.inscripcion</field>
             <field name="arch" type="xml">
                 <form string="Inscripción">
                     <sheet>
-                        <group>
-                            <field name="gestion_paralelo_id" required="1"/>
-                            <field name="estudiante_id" required="1"/>
-                            <field name="fecha" required="1"/>
-                            <field name="monto_total" required="1"/>
-                            <field name="es_becado" required="1"/>
-                        </group>
-                        <group>
-                            <field name="gestion_id"/>
-                            <field name="paralelo_id"/>
-                            <field name="curso_id"/>
-                            <field name="sucursal_id"/>
+                        <group string="Detalles de Inscripción">
+                            <group>
+                                <field name="gestion_paralelo_id" required="1"/>
+                                <field name="estudiante_id" required="1"/>
+                                <field name="fecha" required="1"/>
+                                <field name="monto_total" required="1"/>
+                                <field name="es_becado" required="1"/>
+                            </group>
+                            <group>
+                                <field name="gestion_id"/>
+                                <field name="paralelo_id"/>
+                                <field name="curso_id"/>
+                                <field name="sucursal_id"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <!-- Vista de árbol para Inscripcion -->
+        <!-- Vista de árbol para Inscripción -->
         <record id="view_inscripcion_tree" model="ir.ui.view">
             <field name="name">gestion_academica.inscripcion.tree</field>
             <field name="model">gestion_academica.inscripcion</field>
@@ -51,27 +53,19 @@
             </field>
         </record>
 
-        <!-- <record model="ir.actions.act_window" id="abrir_inscripcion_view">
-            <field name="name">Inscripcions</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">gestion_academica.inscripcion</field>
-            <field name="view_mode">kanban,tree,form</field>
-        </record> -->
-
-
-        <record model="ir.actions.act_window.view" id="abrir_inscripcion_view_form">
-            <field name="act_window_id" ref="abrir_inscripcion_view" />
-            <field name="sequence" eval="20" />
+        <!-- Vistas en la acción -->
+        <record id="abrir_inscripcion_view_form" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="abrir_inscripcion_view"/>
+            <field name="sequence" eval="20"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_inscripcion_form" />
+            <field name="view_id" ref="view_inscripcion_form"/>
         </record>
 
-        <record model="ir.actions.act_window.view" id="abrir_inscripcion_view_tree">
-            <field name="act_window_id" ref="abrir_inscripcion_view" />
-            <field name="sequence" eval="10" />
+        <record id="abrir_inscripcion_view_tree" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="abrir_inscripcion_view"/>
+            <field name="sequence" eval="10"/>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_inscripcion_tree" />
+            <field name="view_id" ref="view_inscripcion_tree"/>
         </record>
-
     </data>
 </odoo>
