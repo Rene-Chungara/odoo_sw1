@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Horario(models.Model):
     _name = 'gestion_academica.horario'

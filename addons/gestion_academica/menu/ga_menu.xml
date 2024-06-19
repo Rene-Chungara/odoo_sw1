@@ -30,19 +30,24 @@
     <menuitem id="menu_materia"
         name="Materias"
         parent="ga_menu_root"
-        sequence="30"
+        sequence="30" />
+
+    <menuitem id="menu_materias_list"
+        name="Materias"
+        parent="menu_materia"
+        sequence="10"
         action="abrir_materia_view" />
 
     <menuitem id="menu_materia_profesor_horario"
         name="Gestionar Horarios"
         parent="menu_materia"
-        sequence="10"
+        sequence="20"
         action="abrir_horario_view" />
 
     <menuitem id="menu_asignacion_horario"
         name="Asignar Horarios"
         parent="menu_materia"
-        sequence="20"
+        sequence="30"
         action="abrir_asigancion_horario" />
 
     <!-- Infraestructura -->
