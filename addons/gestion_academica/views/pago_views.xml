@@ -1,46 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Vista del Asistente -->
-        <record id="view_pago_report_wizard_form" model="ir.ui.view">
-            <field name="name">pago.report.wizard.form</field>
-            <field name="model">pago.report.wizard</field>
-            <field name="arch" type="xml">
-                <form string="Generar Reporte de Pagos">
-                    <group>
-                        <field name="fecha_inicio"/>
-                        <field name="fecha_fin"/>
-                    </group>
-                    <footer>
-                        <button string="Generar" type="object" name="generar_reporte" class="btn-primary"/>
-                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
-
-        <!-- Vista del Resultado -->
-        <record id="view_pago_report_result_form" model="ir.ui.view">
-            <field name="name">pago.report.result.form</field>
-            <field name="model">pago.report.result</field>
-            <field name="arch" type="xml">
-                <form string="Total Pagado">
-                    <group>
-                        <field name="total_pagado"/>
-                    </group>
-                    <footer>
-                        <button string="Cerrar" class="btn-primary" special="cancel"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
-
-        <!-- Acción del Asistente -->
-        <record id="action_pago_report_wizard" model="ir.actions.act_window">
-            <field name="name">Generar Reporte de Pagos</field>
-            <field name="res_model">pago.report.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-        </record>
+        <!-- Añade aquí tus vistas -->
     </data>
 </odoo>

@@ -92,11 +92,5 @@
         sequence="20"
         action="abrir_inscripcion_view" />
 
-    <!-- PAGOS -->
-    <menuitem id="menu_pagos_root"
-        name="Pagos"
-        parent="ga_menu_root"
-        sequence="60"
-        action="pago_view"/>
 
 </odoo>
