@@ -74,9 +74,6 @@
         sequence="30"
         action="abrir_paralelo_view" />
 
-    <!-- Gestiones -->
-    
-
     <!-- Servicios -->
     <menuitem id="menu_servicio_root"
         name="Inscripciones"
