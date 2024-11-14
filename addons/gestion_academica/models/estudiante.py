@@ -13,7 +13,7 @@ class Estudiante(models.Model):
     direccion = fields.Char(string='Dirección')
     fecha_nacimiento = fields.Date(string='Fecha de Nacimiento')
     telefono = fields.Char(string='Teléfono')
-    parentesco_ids = fields.One2many('gestion_academica.parentesco', 'estudiante_id', string='Apoderados')
+    parentesco_ids = fields.One2many('gestion_academica.parentesco', 'estudiante_id', string='Tutor')
     matricula_ids = fields.One2many('gestion_academica.matricula', 'estudiante_id', string='Pagos')
 
     nota_ids = fields.One2many('gestion_academica.nota', 'estudiante_id', string='Notas')
