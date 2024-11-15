@@ -19,6 +19,8 @@ from . import inscripcion
 from . import gestion_paralelo_materia_profesor_horario
 from . import nota
 from . import matricula
+from . import tarea
+
 
 # Expone las clases de tus modelos
 Estudiante = estudiante.Estudiante
@@ -30,3 +32,4 @@ Sucursal = sucursal.Sucursal
 MateriaProfesor = materia_profesor.MateriaProfesor
 MateriaProfesorHorario = materia_profesor_horario.MateriaProfesorHorario
 Horario = horario.Horario
+Tarea = tarea.Tarea

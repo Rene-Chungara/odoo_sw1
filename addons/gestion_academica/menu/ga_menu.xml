@@ -8,7 +8,7 @@
 
     <!-- Estudiantes -->
     <menuitem id="menu_estudiante"
-        name="Estudiantes"
+        name="Alumnos"
         parent="ga_menu_root"
         sequence="10"
         action="abrir_estudiante_view" />
@@ -92,5 +92,10 @@
         sequence="20"
         action="abrir_inscripcion_view" />
 
+    <menuitem id="menu_tareas"
+        name="Tareas"
+        parent="ga_menu_root"
+        sequence="60"
+        action="abrir_tarea_view" />
 
 </odoo>
