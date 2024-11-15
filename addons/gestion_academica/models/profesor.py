@@ -20,4 +20,4 @@ class Profesor(models.Model):
     )
 
     materia_profesor_ids = fields.One2many('gestion_academica.materia_profesor', 'profesor_id', string='Materias')
-
+    user_id = fields.Many2one('res.users', string="Usuario relacionado")

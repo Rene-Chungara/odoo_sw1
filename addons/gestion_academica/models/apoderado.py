@@ -8,5 +8,5 @@ class Apoderado(models.Model):
     telefono = fields.Char(string='Telefono del titular', required=True)
     ci = fields.Char(string='CI del titular', required=True)
     parentesco_ids = fields.One2many('gestion_academica.parentesco', 'apoderado_id', string='Estudiantes')
-
+    user_id = fields.Many2one('res.users', string="Usuario relacionado")
 

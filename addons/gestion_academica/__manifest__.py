@@ -5,7 +5,7 @@
     "description": "Este módulo permite gestionar estudiantes, cursos y profesores.",
     "author": "Grupo 14 Sw",
     "category": "Education",
-    "depends": ["contacts"],
+    "depends": ["base","contacts"],
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
