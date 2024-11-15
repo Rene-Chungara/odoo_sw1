@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="accion_calendario_tareas">
+            <field name="name">Calendario</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gestion_academica.tarea</field>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="vista_calendario_tareas"/>
+        </record>
+    </data>
+</odoo>

@@ -93,9 +93,15 @@
         action="abrir_inscripcion_view" />
 
     <menuitem id="menu_tareas"
-        name="Tareas"
+        name="Notificar"
         parent="ga_menu_root"
         sequence="60"
         action="abrir_tarea_view" />
+
+    <menuitem id="menu_calendario" 
+        name="Calendario" 
+        parent="ga_menu_root" 
+        sequence="70"
+        action="accion_calendario_tareas" />
 
 </odoo>

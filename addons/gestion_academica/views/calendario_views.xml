@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="vista_calendario_tareas" model="ir.ui.view">
+            <field name="name">Calendario</field>
+            <field name="model">gestion_academica.tarea</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendario" date_start="fecha_entrega">
+                    <field name="nombre" string="Asunto: "/>
+                    <field name="curso_id" string="Curso: "/>
+                </calendar>
+            </field>
+        </record>
+    </data>
+</odoo>
