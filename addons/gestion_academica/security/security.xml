@@ -219,5 +219,54 @@
 				[(1,'=',1)]
 			</field>
 		</record>
+		<record id="group_gestion_academica_alumno" model="res.groups">
+        	<field name="name">Alumno</field>
+        	<field name="category_id" ref="base.module_category_human_resources"/>
+    	</record>
+
+		<!-- Regla de acceso para el modelo res.users para el grupo de estudiantes -->
+		<record id="rule_gestion_academica_res_users_access" model="ir.rule">
+			<field name="name">Acceso a su propio usuario</field>
+			<field name="model_id" ref="base.model_res_users"/>
+			<field name="groups" eval="[(4, ref('gestion_academica.group_gestion_academica_alumno'))]"/>
+			<field name="domain_force">[('id', '=', user.id)]</field>
+			<field name="perm_read" eval="1"/>
+			<field name="perm_write" eval="0"/>
+			<field name="perm_create" eval="0"/>
+			<field name="perm_unlink" eval="0"/>
+		</record>
+			<record id="rule_gestion_academica_res_partner_access" model="ir.rule">
+    		<field name="name">Acceso a su propio contacto</field>
+    		<field name="model_id" ref="base.model_res_partner"/>
+    		<field name="groups" eval="[(4, ref('gestion_academica.group_gestion_academica_alumno'))]"/>
+    		<field name="domain_force">[('id', '=', user.partner_id.id)]</field>
+    		<field name="perm_read" eval="1"/>
+    		<field name="perm_write" eval="0"/>
+    		<field name="perm_create" eval="0"/>
+    		<field name="perm_unlink" eval="0"/>
+		</record>
+
+	<record id="rule_currency_access_for_alumno" model="ir.rule">
+    	<field name="name">Permiso de lectura de moneda para alumnos</field>
+    	<field name="model_id" ref="base.model_res_currency"/>
+    	<field name="groups" eval="[(4, ref('gestion_academica.group_gestion_academica_alumno'))]"/>
+    	<field name="domain_force">[]</field>
+    	<field name="perm_read" eval="1"/>
+    	<field name="perm_write" eval="0"/>
+    	<field name="perm_create" eval="0"/>
+    	<field name="perm_unlink" eval="0"/>
+	</record>
+
+	<record id="rule_mail_message_alumno" model="ir.rule">
+    	<field name="name">Acceso a mensajes de tareas</field>
+    	<field name="model_id" ref="mail.model_mail_message"/>
+    	<field name="groups" eval="[(4, ref('gestion_academica.group_gestion_academica_alumno'))]"/>
+    	<field name="domain_force">[('model', '=', 'gestion_academica.tarea')]</field>
+    	<field name="perm_read" eval="1"/>
+    	<field name="perm_write" eval="0"/>
+    	<field name="perm_create" eval="0"/>
+    	<field name="perm_unlink" eval="0"/>
+	</record>
+	
 	</data>
 </odoo>

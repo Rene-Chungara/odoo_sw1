@@ -14,6 +14,12 @@
                                         <h4 class="card-title">
                                             <field name="nombre"/>
                                         </h4>
+                                        <!-- Nuevo campo 'tipo' en la cabecera de la tarjeta -->
+                                        <div class="o_kanban_tags">
+                                            <span class="badge badge-info">
+                                                <field name="tipo"/>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <ul class="list-group list-group-flush">
@@ -46,6 +52,7 @@
             <field name="arch" type="xml">
                 <tree string="Tareas" class="o_list_view">
                     <field name="nombre" string="Nombre"/>
+                    <field name="tipo" string="Tipo"/> <!-- Nuevo campo 'tipo' -->
                     <field name="fecha_entrega" string="Fecha de Entrega"/>
                     <field name="curso_id" string="Curso"/>
                     <field name="tipo_archivo" string="Tipo de Archivo"/>
@@ -67,6 +74,7 @@
                         </div>
                         <group>
                             <group>
+                                <field name="tipo" required="1" string="Tipo"/> <!-- Nuevo campo 'tipo' -->
                                 <field name="descripcion" string="Descripción"/>
                                 <field name="fecha_entrega" required="1" string="Fecha de Entrega"/>
                                 <field name="curso_id" required="1" string="Curso"/>
